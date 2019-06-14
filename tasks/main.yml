@@ -1,0 +1,8 @@
+- name: deb
+  debug:
+    msg: "jeste jave"
+
+- name: install jdk
+  yum:
+    name: "{{java.type}}-{{java.version}}"
+  become: True
