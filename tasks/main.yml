@@ -2,7 +2,14 @@
   debug:
     msg: "jeste jave"
 
-- name: install jdk
-  yum:
-    name: "{{java.type}}-{{java.version}}"
+- block:
+  - name: install jdk
+    yum:
+      name: "{{java.type}}-{{java.version}}"
+  rescue:
+    - name: clear yum cache
+      command: yum clean all
+    - name: install jdk
+      yum:
+        name: "{{java.type}}-{{java.version}}"
   become: True
