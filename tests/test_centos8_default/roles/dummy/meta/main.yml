@@ -1,0 +1,3 @@
+dependencies:
+  - role: exphost.java
+    java: "{{app.value.dummy.java}}"

@@ -1,0 +1,8 @@
+apps_java:
+  java:
+    dummy:
+      type: dummy
+      enabled: True
+      java:
+        type: openjdk
+        version: 12

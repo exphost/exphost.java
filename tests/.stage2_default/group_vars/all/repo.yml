@@ -1,0 +1,7 @@
+configs_my_repo:
+  repos:
+    my_repo_prod:
+      baseurl: "http://repo.prod.exphost.fabrykowski.pl"
+      gpgcheck: 0
+      skip_if_unavailable: True
+
