@@ -1,3 +1,4 @@
+---
 - name: deb
   debug:
     msg: "jeste jave"
@@ -6,11 +7,12 @@
       file:
         path: "/opt/{{ java.type }}-{{ java.version }}"
         state: directory
+        mode: 0755
 
     - name: unarchive java
       unarchive:
         src: "{{ java.src | default(_javas[java.type][java.version]['src']) | default(omit) }}"
-        dest: "/opt/{{ java.type}}-{{ java.version }}"
-        remote_src: yes
+        dest: "/opt/{{ java.type }}-{{ java.version }}"
+        remote_src: true
         extra_opts: [--strip-components=1]
   become: true
