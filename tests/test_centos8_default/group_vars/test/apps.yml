@@ -5,4 +5,4 @@ apps_java:
       enabled: True
       java:
         type: openjdk
-        version: 12
+        version: 15
