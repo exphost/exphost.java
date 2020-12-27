@@ -1,15 +1,16 @@
 - name: deb
   debug:
     msg: "jeste jave"
-
 - block:
-  - name: install jdk
-    yum:
-      name: "{{java.type}}-{{java.version}}"
-  rescue:
-    - name: clear yum cache
-      command: yum clean all
-    - name: install jdk
-      yum:
-        name: "{{java.type}}-{{java.version}}"
-  become: True
+    - name: create dir
+      file:
+        path: "/opt/{{ java.type }}-{{ java.version }}"
+        state: directory
+
+    - name: unarchive java
+      unarchive:
+        src: "{{ java.src | default(_javas[java.type][java.version]['src']) | default(omit) }}"
+        dest: "/opt/{{ java.type}}-{{ java.version }}"
+        remote_src: yes
+        extra_opts: [--strip-components=1]
+  become: true

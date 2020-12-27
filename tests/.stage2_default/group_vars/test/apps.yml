@@ -1,8 +1,23 @@
 apps_java:
-  java:
+  java15:
     dummy:
       type: dummy
       enabled: True
       java:
         type: openjdk
         version: 15
+  java12:
+    dummy:
+      type: dummy
+      enabled: True
+      java:
+        type: openjdk
+        version: 12
+  java14:
+    dummy:
+      type: dummy
+      enabled: True
+      java:
+        type: openjdk
+        version: 14
+        src: https://download.java.net/java/GA/jdk14.0.2/205943a0976c4ed48cb16f1043c5c647/12/GPL/openjdk-14.0.2_linux-x64_bin.tar.gz
